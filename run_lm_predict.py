@@ -521,7 +521,7 @@ def main(_):
       max_predictions_per_seq=FLAGS.max_predictions_per_seq)
 
   result = estimator.predict(input_fn=predict_input_fn)
-  output_predict_file = os.path.join(FLAGS.output_dir, "test_results.json")
+  output_predict_file = os.path.join(FLAGS.output_dir, input_file.split('.')[0] + ".json")
   parse_result(result, all_tokens, output_predict_file)
 
 if __name__ == "__main__":
